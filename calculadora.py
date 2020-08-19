@@ -6,19 +6,23 @@ window.title("Calculator")
 window.geometry("400x400")  
 window.maxsize(225,270)
 window.minsize(225,270)
+window.configure(bg="blue")
 number1=IntVar()
 number2=IntVar()
-def change():
-    x=number1.get()
+
+def delete():
+  global operador 
+  operador=""
+  number1.set(operador)
 def _init_():
     
-    entrada_dato=Entry(window,textvariable=number1.get(),width=100)
+    entrada_dato=Entry(window,textvariable=number1,width=100)
     entrada_dato.grid(column=0,row=0)
     
-    button_ac=Button(window,text="AC",width=2,height=2, bg="red",command=change)
+    button_ac=Button(window,text="AC",width=2,height=2, bg="red",command=delete)
     button_ac.place(x=0,y=21)
     
-    button_1=Button(window,text="1",width=2,height=2,command=change)
+    button_1=Button(window,text="1",width=2,height=2)
     button_1.place(x=0,y=170)
     
     button_2=Button(window,text="2",width=2,height=2)
